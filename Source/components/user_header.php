@@ -20,12 +20,13 @@ if(isset($message)){
    <img src="images/LYgjKqzpQb.png" alt="Yum-Yum Logo" width="100" height="100"></a>
 
       <nav class="navbar">
-         <a href="home.php">home</a>
-         <a href="about.php">about</a>
-         <a href="menu.php">menu</a>
-         <a href="orders.php">orders</a>
-         <a href="contact.php">contact</a>
-         <a href="management/admin_login.php">admin portal</a>
+         <a href="home.php">Home</a>
+         <a href="about.php">About</a>
+         <a href="menu.php">Menu</a>
+         <a href="orders.php">Orders</a>
+         <a href="contact.php">Contact</a>
+         <a href="management/admin_login.php">Management Portal</a>
+         <a href="operation/admin_login.php">Operation Portal</a>
       </nav>
 
       <div class="icons">

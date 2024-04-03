@@ -17,15 +17,13 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="dashboard.php" class="logo">Managment<span>Panel</span></a>
+      <a href="dashboard.php" class="logo">Operation<span>Panel</span></a>
       <img src="images/LYgjKqzpQb.png" width="100" height="100"></a>
 
       <nav class="navbar">
          <a href="dashboard.php">Home</a>
          <a href="products.php">Products</a>
          <a href="placed_orders.php">Orders</a>
-         <a href="admin_accounts.php">Admins</a>
-         <a href="users_accounts.php">Users</a>
          <a href="messages.php">Messages</a>
       </nav>
 
@@ -36,16 +34,16 @@ if(isset($message)){
 
       <div class="profile">
          <?php
-            $select_profile = $conn->prepare("SELECT * FROM `management` WHERE id = ?");
-            $select_profile->execute([$man_id]);
+            $select_profile = $conn->prepare("SELECT * FROM `operation` WHERE id = ?");
+            $select_profile->execute([$op_id]);
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
          <p><?= $fetch_profile['name']; ?></p>
-         <a href="update_profile.php" class="btn">update manager profile</a>
+         <a href="update_profile.php" class="btn">update operator profile</a>
          <div class="flex-btn">
             <a href="admin_login.php" class="option-btn">login</a>
          </div>
-         <a href="../components/man_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
+         <a href="../components/op_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
       </div>
 
    </section>
