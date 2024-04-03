@@ -22,15 +22,15 @@ FCMS offers the following key features:
 ## Technologies Used:
 FCMS is developed using the following technologies:
 - Frontend: HTML, CSS, JavaScript
-- Backend: Node.js, Express.js
-- Database: MongoDB
+- Backend: PHP
+- Database: MySQL
 - Additional Tools: Trello, Burndown for Trello, GitHub
 
 ## Branches:
 - `main`: Main development branch.
-- `frontend`: Frontend development branch.
-- `backend`: Backend development branch.
-- `database`: Database development branch.
+- `frontend`: Frontend development branch. (Optional)
+- `backend and database`: Backend and database development branch. (Optional)
+- `testing`: Testing development branch. (Optional)
 
 ## Getting Started:
 To get started with FCMS development, follow these steps:
