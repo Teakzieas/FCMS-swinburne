@@ -4,16 +4,16 @@ include '../components/connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
+$man_id = $_SESSION['man_id'];
 
-if(!isset($admin_id)){
+if(!isset($man_id)){
    header('location:admin_login.php');
 }
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
-   $delete_admin = $conn->prepare("DELETE FROM `admin` WHERE id = ?");
-   $delete_admin->execute([$delete_id]);
+   $delete_man = $conn->prepare("DELETE FROM `management` WHERE id = ?");
+   $delete_man->execute([$delete_id]);
    header('location:admin_accounts.php');
 }
 
@@ -25,7 +25,7 @@ if(isset($_GET['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admins Accounts</title>
+   <title>Managers Accounts</title>
    <link rel="icon" href="images/LYgjKqzpQb.ico" type="image/x-icon">
 
    <!-- font awesome cdn link  -->
@@ -36,13 +36,13 @@ if(isset($_GET['delete'])){
 
 </head>
 <body>
-<?php include '../components/admin_header.php' ?>
+<?php include '../components/man_header.php' ?>
 
 <!-- admins accounts section starts  -->
 
 <section class="accounts">
 
-   <h1 class="heading">admins account</h1>
+   <h1 class="heading">Managers Accounts</h1>
 
    <div class="box-container">
 
@@ -52,18 +52,18 @@ if(isset($_GET['delete'])){
    </div>
 
    <?php
-      $select_account = $conn->prepare("SELECT * FROM `admin`");
+      $select_account = $conn->prepare("SELECT * FROM `management`");
       $select_account->execute();
       if($select_account->rowCount() > 0){
          while($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)){  
    ?>
    <div class="box">
-      <p> admin id : <span><?= $fetch_accounts['id']; ?></span> </p>
+      <p> Managment id : <span><?= $fetch_accounts['id']; ?></span> </p>
       <p> username : <span><?= $fetch_accounts['name']; ?></span> </p>
       <div class="flex-btn">
          <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" class="delete-btn" onclick="return confirm('delete this account?');">delete</a>
          <?php
-            if($fetch_accounts['id'] == $admin_id){
+            if($fetch_accounts['id'] == $man_id){
                echo '<a href="update_profile.php" class="option-btn">update</a>';
             }
          ?>

@@ -17,7 +17,7 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="dashboard.php" class="logo">Admin<span>Panel</span></a>
+      <a href="dashboard.php" class="logo">Managment<span>Panel</span></a>
       <img src="images/LYgjKqzpQb.png" width="100" height="100"></a>
 
       <nav class="navbar">
@@ -36,17 +36,17 @@ if(isset($message)){
 
       <div class="profile">
          <?php
-            $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
-            $select_profile->execute([$admin_id]);
+            $select_profile = $conn->prepare("SELECT * FROM `management` WHERE id = ?");
+            $select_profile->execute([$man_id]);
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
          <p><?= $fetch_profile['name']; ?></p>
-         <a href="update_profile.php" class="btn">update profile</a>
+         <a href="update_profile.php" class="btn">update manager profile</a>
          <div class="flex-btn">
             <a href="admin_login.php" class="option-btn">login</a>
             <a href="register_admin.php" class="option-btn">register</a>
          </div>
-         <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
+         <a href="../components/man_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
       </div>
 
    </section>

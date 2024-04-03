@@ -4,9 +4,9 @@ include '../components/connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
+$man_id = $_SESSION['man_id'];
 
-if(!isset($admin_id)){
+if(!isset($man_id)){
    header('location:admin_login.php');
 }
 
@@ -16,19 +16,19 @@ if(isset($_POST['submit'])){
    $name = filter_var($name, FILTER_SANITIZE_STRING);
 
    if(!empty($name)){
-      $select_name = $conn->prepare("SELECT * FROM `admin` WHERE name = ?");
+      $select_name = $conn->prepare("SELECT * FROM `management` WHERE name = ?");
       $select_name->execute([$name]);
       if($select_name->rowCount() > 0){
          $message[] = 'username already taken!';
       }else{
-         $update_name = $conn->prepare("UPDATE `admin` SET name = ? WHERE id = ?");
-         $update_name->execute([$name, $admin_id]);
+         $update_name = $conn->prepare("UPDATE `management` SET name = ? WHERE id = ?");
+         $update_name->execute([$name, $man_id]);
       }
    }
 
    $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
-   $select_old_pass = $conn->prepare("SELECT password FROM `admin` WHERE id = ?");
-   $select_old_pass->execute([$admin_id]);
+   $select_old_pass = $conn->prepare("SELECT password FROM `management` WHERE id = ?");
+   $select_old_pass->execute([$man_id]);
    $fetch_prev_pass = $select_old_pass->fetch(PDO::FETCH_ASSOC);
    $prev_pass = $fetch_prev_pass['password'];
    $old_pass = sha1($_POST['old_pass']);
@@ -45,8 +45,8 @@ if(isset($_POST['submit'])){
          $message[] = 'confirm password not matched!';
       }else{
          if($new_pass != $empty_pass){
-            $update_pass = $conn->prepare("UPDATE `admin` SET password = ? WHERE id = ?");
-            $update_pass->execute([$confirm_pass, $admin_id]);
+            $update_pass = $conn->prepare("UPDATE `management` SET password = ? WHERE id = ?");
+            $update_pass->execute([$confirm_pass, $man_id]);
             $message[] = 'password updated successfully!';
          }else{
             $message[] = 'please enter a new password!';
@@ -75,14 +75,14 @@ if(isset($_POST['submit'])){
 
 </head>
 <body>
-<?php include '../components/admin_header.php' ?>
+<?php include '../components/man_header.php' ?>
 
 <!-- admin profile update section starts  -->
 
 <section class="form-container">
 
    <form action="" method="POST">
-      <h3>update profile</h3>
+      <h3>update manager profile</h3>
       <input type="text" name="name" maxlength="20" class="box" oninput="this.value = this.value.replace(/\s/g, '')" placeholder="<?= $fetch_profile['name']; ?>">
       <input type="password" name="old_pass" maxlength="20" placeholder="enter your old password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="new_pass" maxlength="20" placeholder="enter your new password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">

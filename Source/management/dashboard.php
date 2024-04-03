@@ -4,9 +4,9 @@ include '../components/connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
+$man_id = $_SESSION['man_id'];
 
-if(!isset($admin_id)){
+if(!isset($man_id)){
    header('location:admin_login.php');
 }
 
@@ -29,7 +29,7 @@ if(!isset($admin_id)){
 
 </head>
 <body>
-<?php include '../components/admin_header.php' ?>
+<?php include '../components/man_header.php' ?>
 
 <!-- admin dashboard section starts  -->
 
@@ -42,7 +42,7 @@ if(!isset($admin_id)){
    <div class="box">
       <h3>welcome!</h3>
       <p><?= $fetch_profile['name']; ?></p>
-      <a href="update_profile.php" class="btn">update profile</a>
+      <a href="update_profile.php" class="btn">update manager profile</a>
    </div>
 
    <div class="box">
@@ -108,13 +108,13 @@ if(!isset($admin_id)){
 
    <div class="box">
       <?php
-         $select_admins = $conn->prepare("SELECT * FROM `admin`");
+         $select_admins = $conn->prepare("SELECT * FROM `management`");
          $select_admins->execute();
          $numbers_of_admins = $select_admins->rowCount();
       ?>
       <h3><?= $numbers_of_admins; ?></h3>
-      <p>admins</p>
-      <a href="admin_accounts.php" class="btn">see admins</a>
+      <p>management</p>
+      <a href="admin_accounts.php" class="btn">see Managers</a>
    </div>
 
    <div class="box">

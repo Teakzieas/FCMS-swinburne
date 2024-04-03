@@ -4,9 +4,9 @@ include '../components/connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
+$man_id = $_SESSION['man_id'];
 
-if(!isset($admin_id)){
+if(!isset($man_id)){
    header('location:admin_login.php');
 };
 
@@ -68,7 +68,7 @@ if(isset($_POST['update'])){
 </head>
 <body>
 
-<?php include '../components/admin_header.php' ?>
+<?php include '../components/man_header.php' ?>
 
 <!-- update product section starts  -->
 

@@ -86,7 +86,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Update profile</title>
+   <title>Update manager profile</title>
    <link rel="icon" href="images/LYgjKqzpQb.ico" type="image/x-icon">
 
    <!-- font awesome cdn link  -->
@@ -104,7 +104,7 @@ if(isset($_POST['submit'])){
 <section class="form-container update-form">
 
    <form action="" method="post">
-      <h3>update profile</h3>
+      <h3>update manager profile</h3>
       <input type="text" name="name" placeholder="<?= $fetch_profile['name']; ?>" class="box" maxlength="50">
       <input type="email" name="email" placeholder="<?= $fetch_profile['email']; ?>" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="number" name="number" placeholder="<?= $fetch_profile['number']; ?>"" class="box" min="0" max="9999999999" maxlength="10">

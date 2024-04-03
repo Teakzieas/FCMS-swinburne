@@ -11,12 +11,12 @@ if(isset($_POST['submit'])){
    $pass = sha1($_POST['pass']);
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
-   $select_admin = $conn->prepare("SELECT * FROM `admin` WHERE name = ? AND password = ?");
+   $select_admin = $conn->prepare("SELECT * FROM `management` WHERE name = ? AND password = ?");
    $select_admin->execute([$name, $pass]);
    
    if($select_admin->rowCount() > 0){
       $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
-      $_SESSION['admin_id'] = $fetch_admin_id['id'];
+      $_SESSION['man_id'] = $fetch_admin_id['id'];
       header('location:dashboard.php');
    }else{
       $message[] = 'incorrect username or password!';
@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admin login</title>
+   <title>Managment login</title>
    <link rel="icon" href="images/LYgjKqzpQb.ico" type="image/x-icon">
 
    <!-- font awesome cdn link  -->

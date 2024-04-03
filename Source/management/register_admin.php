@@ -4,9 +4,9 @@ include '../components/connect.php';
 
 session_start();
 
-$admin_id = $_SESSION['admin_id'];
+$man_id = $_SESSION['man_id'];
 
-if(!isset($admin_id)){
+if(!isset($man_id)){
    header('location:admin_login.php');
 };
 
@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    $cpass = sha1($_POST['cpass']);
    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
-   $select_admin = $conn->prepare("SELECT * FROM `admin` WHERE name = ?");
+   $select_admin = $conn->prepare("SELECT * FROM `managment` WHERE name = ?");
    $select_admin->execute([$name]);
    
    if($select_admin->rowCount() > 0){
@@ -28,9 +28,9 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $message[] = 'confirm passowrd not matched!';
       }else{
-         $insert_admin = $conn->prepare("INSERT INTO `admin`(name, password) VALUES(?,?)");
+         $insert_admin = $conn->prepare("INSERT INTO `managment`(name, password) VALUES(?,?)");
          $insert_admin->execute([$name, $cpass]);
-         $message[] = 'new admin registered!';
+         $message[] = 'new managment registered!';
       }
    }
 
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Register as Admin</title>
+   <title>Register as Manager</title>
    <link rel="icon" href="images/LYgjKqzpQb.ico" type="image/x-icon">
 
    <!-- font awesome cdn link  -->
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 
 </head>
 <body>
-<?php include '../components/admin_header.php' ?>
+<?php include '../components/man_header.php' ?>
 
 <!-- register admin section starts  -->
 
