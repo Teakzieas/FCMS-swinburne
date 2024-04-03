@@ -30,7 +30,7 @@ FCMS is developed using the following technologies:
 - `main`: Main development branch.
 - `frontend`: Frontend development branch. (Optional)
 - `backend and database`: Backend and database development branch. (Optional)
-- `testing`: Testing development branch. (Optional)
+- `testing`: Testing branch. (Optional)
 
 ## Getting Started:
 To get started with FCMS development, follow these steps:
