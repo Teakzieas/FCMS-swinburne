@@ -4,7 +4,7 @@ include '../components/connect.php';
 
 session_start();
 
-$op_id = $_SESSION['op_id'];
+$op_id = $_SESSION['man_id'];
 
 if(!isset($op_id)){
    header('location:admin_login.php');
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
    <form action="" method="POST">
-      <h3>register new</h3>
+      <h3>register new Operator</h3>
       <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" maxlength="20" required placeholder="confirm your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">

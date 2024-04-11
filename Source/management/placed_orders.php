@@ -57,7 +57,13 @@ if(isset($_GET['delete'])){
    <div class="box-container">
 
    <?php
-      $select_orders = $conn->prepare("SELECT * FROM `orders`");
+      if(isset($_GET['status'])){
+         $status = $_GET['status'];
+         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = '$status'");
+      }
+      else{
+         $select_orders = $conn->prepare("SELECT * FROM `orders`");
+      }
       $select_orders->execute();
       if($select_orders->rowCount() > 0){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){

@@ -56,7 +56,7 @@ if(!isset($man_id)){
       ?>
       <h3><span>$</span><?= $total_pendings; ?><span>/-</span></h3>
       <p>total pendings</p>
-      <a href="placed_orders.php" class="btn">see orders</a>
+      <a href="placed_orders.php?status=pending" class="btn">see orders</a>
    </div>
 
    <div class="box">
@@ -70,7 +70,7 @@ if(!isset($man_id)){
       ?>
       <h3><span>$</span><?= $total_completes; ?><span>/-</span></h3>
       <p>total completes</p>
-      <a href="placed_orders.php" class="btn">see orders</a>
+      <a href="placed_orders.php?status=completed" class="btn">see orders</a>
    </div>
 
    <div class="box">
@@ -115,6 +115,17 @@ if(!isset($man_id)){
       <h3><?= $numbers_of_admins; ?></h3>
       <p>management</p>
       <a href="admin_accounts.php" class="btn">see Managers</a>
+   </div>
+
+   <div class="box">
+      <?php
+         $select_admins1 = $conn->prepare("SELECT * FROM `operation`");
+         $select_admins1->execute();
+         $numbers_of_admins1 = $select_admins1->rowCount();
+      ?>
+      <h3><?= $numbers_of_admins1; ?></h3>
+      <p>operators</p>
+      <a href="admin_accounts.php" class="btn">see Operators</a>
    </div>
 
    <div class="box">
