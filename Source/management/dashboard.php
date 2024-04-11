@@ -125,7 +125,7 @@ if(!isset($man_id)){
       ?>
       <h3><?= $numbers_of_admins1; ?></h3>
       <p>operators</p>
-      <a href="admin_accounts.php" class="btn">see Operators</a>
+      <a href="operators_accounts.php" class="btn">see Operators</a>
    </div>
 
    <div class="box">
