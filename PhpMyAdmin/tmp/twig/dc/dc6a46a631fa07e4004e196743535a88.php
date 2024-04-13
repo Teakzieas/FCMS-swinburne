@@ -128,6 +128,6 @@ class __TwigTemplate_b7a3162d233dd505c654dfb0e87fbb5a extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "scripts.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\scripts.twig");
+        return new Source("", "scripts.twig", "D:\\Xampp\\htdocs\\FCMS\\phpMyAdmin-5.2.1-all-languages\\templates\\scripts.twig");
     }
 }
