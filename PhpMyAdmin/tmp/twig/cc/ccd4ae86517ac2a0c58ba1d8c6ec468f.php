@@ -250,6 +250,6 @@ echo _gettext("Switch to dark theme");
 
     public function getSourceContext()
     {
-        return new Source("", "console/display.twig", "D:\\Xampp\\htdocs\\FCMS\\phpMyAdmin-5.2.1-all-languages\\templates\\console\\display.twig");
+        return new Source("", "console/display.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\console\\display.twig");
     }
 }

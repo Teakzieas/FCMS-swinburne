@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* navigation/tree/controls.twig */
-class __TwigTemplate_ba328110037f629a4dda6f1e79ddbf3f extends Template
+/* display/results/empty_display.twig */
+class __TwigTemplate_2335a6cd9e82daa559d40430c478b4c7 extends Template
 {
     private $source;
     private $macros = [];
@@ -34,26 +34,15 @@ class __TwigTemplate_ba328110037f629a4dda6f1e79ddbf3f extends Template
     {
         $macros = $this->macros;
         // line 1
-        echo "<!-- CONTROLS START -->
-<li id=\"navigation_controls_outer\">
-    <div id=\"navigation_controls\">
-        ";
-        // line 4
-        echo ($context["collapse_all"] ?? null);
-        echo "
-        ";
-        // line 5
-        echo ($context["unlink"] ?? null);
-        echo "
-    </div>
-</li>
-<!-- CONTROLS ENDS -->
+        echo "<td class=\"";
+        echo twig_escape_filter($this->env, ($context["classes"] ?? null), "html", null, true);
+        echo "\"></td>
 ";
     }
 
     public function getTemplateName()
     {
-        return "navigation/tree/controls.twig";
+        return "display/results/empty_display.twig";
     }
 
     public function isTraitable()
@@ -63,11 +52,11 @@ class __TwigTemplate_ba328110037f629a4dda6f1e79ddbf3f extends Template
 
     public function getDebugInfo()
     {
-        return array (  46 => 5,  42 => 4,  37 => 1,);
+        return array (  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("", "navigation/tree/controls.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\navigation\\tree\\controls.twig");
+        return new Source("", "display/results/empty_display.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\display\\results\\empty_display.twig");
     }
 }

@@ -86,6 +86,6 @@ echo _gettext("No tables found in database.");
 
     public function getSourceContext()
     {
-        return new Source("", "navigation/tree/path.twig", "D:\\Xampp\\htdocs\\FCMS\\phpMyAdmin-5.2.1-all-languages\\templates\\navigation\\tree\\path.twig");
+        return new Source("", "navigation/tree/path.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\navigation\\tree\\path.twig");
     }
 }

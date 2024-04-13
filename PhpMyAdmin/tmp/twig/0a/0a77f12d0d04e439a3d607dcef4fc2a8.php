@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* navigation/tree/controls.twig */
-class __TwigTemplate_ba328110037f629a4dda6f1e79ddbf3f extends Template
+/* sql/sql_query_results.twig */
+class __TwigTemplate_1c808f8ba77d2ba0c841b090ead3df50 extends Template
 {
     private $source;
     private $macros = [];
@@ -34,26 +34,38 @@ class __TwigTemplate_ba328110037f629a4dda6f1e79ddbf3f extends Template
     {
         $macros = $this->macros;
         // line 1
-        echo "<!-- CONTROLS START -->
-<li id=\"navigation_controls_outer\">
-    <div id=\"navigation_controls\">
-        ";
+        echo "<div class=\"sqlqueryresults ajax\">
+    ";
+        // line 2
+        echo ($context["previous_update_query"] ?? null);
+        echo "
+    ";
+        // line 3
+        echo ($context["profiling_chart"] ?? null);
+        echo "
+    ";
         // line 4
-        echo ($context["collapse_all"] ?? null);
+        echo ($context["missing_unique_column_message"] ?? null);
         echo "
-        ";
+    ";
         // line 5
-        echo ($context["unlink"] ?? null);
+        echo ($context["bookmark_created_message"] ?? null);
         echo "
-    </div>
-</li>
-<!-- CONTROLS ENDS -->
+    ";
+        // line 6
+        echo ($context["table"] ?? null);
+        echo "
+    ";
+        // line 7
+        echo ($context["bookmark_support"] ?? null);
+        echo "
+</div>
 ";
     }
 
     public function getTemplateName()
     {
-        return "navigation/tree/controls.twig";
+        return "sql/sql_query_results.twig";
     }
 
     public function isTraitable()
@@ -63,11 +75,11 @@ class __TwigTemplate_ba328110037f629a4dda6f1e79ddbf3f extends Template
 
     public function getDebugInfo()
     {
-        return array (  46 => 5,  42 => 4,  37 => 1,);
+        return array (  60 => 7,  56 => 6,  52 => 5,  48 => 4,  44 => 3,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("", "navigation/tree/controls.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\navigation\\tree\\controls.twig");
+        return new Source("", "sql/sql_query_results.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\sql\\sql_query_results.twig");
     }
 }

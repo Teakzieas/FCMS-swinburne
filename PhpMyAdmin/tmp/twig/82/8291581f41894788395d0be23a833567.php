@@ -215,6 +215,6 @@ echo _pgettext("Last page", "End");
 
     public function getSourceContext()
     {
-        return new Source("", "list_navigator.twig", "D:\\Xampp\\htdocs\\FCMS\\phpMyAdmin-5.2.1-all-languages\\templates\\list_navigator.twig");
+        return new Source("", "list_navigator.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\list_navigator.twig");
     }
 }

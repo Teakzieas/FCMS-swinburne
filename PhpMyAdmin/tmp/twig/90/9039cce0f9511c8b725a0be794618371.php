@@ -68,6 +68,6 @@ class __TwigTemplate_d5a1202f50b8ac9547f59e8fc932748b extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "navigation/tree/quick_warp.twig", "D:\\Xampp\\htdocs\\FCMS\\phpMyAdmin-5.2.1-all-languages\\templates\\navigation\\tree\\quick_warp.twig");
+        return new Source("", "navigation/tree/quick_warp.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\navigation\\tree\\quick_warp.twig");
     }
 }

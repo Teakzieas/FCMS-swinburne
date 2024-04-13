@@ -61,6 +61,6 @@ class __TwigTemplate_bc305feeab5625c4028bc00f07161969 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "login/footer.twig", "D:\\Xampp\\htdocs\\FCMS\\phpMyAdmin-5.2.1-all-languages\\templates\\login\\footer.twig");
+        return new Source("", "login/footer.twig", "C:\\xampp\\htdocs\\FoodEdge-FCMS\\PhpMyAdmin\\templates\\login\\footer.twig");
     }
 }
