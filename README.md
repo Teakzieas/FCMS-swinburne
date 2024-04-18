@@ -41,11 +41,11 @@ To get started with FCMS development, follow these steps:
 5. Create a pull request for code review and merging into the main branch.
 
 ## Contributors:
-- [Divyessh Sivakumar (101227402)](link-to-profile)
-- [Nur Naziha Binti Abdullah Saji (102787871)](link-to-profile)
-- [Simon Tiong Chuong Yao (101227716)](link-to-profile)
-- [Tan Chai Ching (104386076)](link-to-profile)
-- [Yong Pei Chen (102774381)](link-to-profile)
+- [Divyessh Sivakumar (101227402)]([link-to-profile](https://github.com/Teakzieas))
+- [Nur Naziha Binti Abdullah Saji (102787871)](https://github.com/zeeetty)
+- [Simon Tiong Chuong Yao (101227716)]([link-to-profile](https://github.com/SimonTCY))
+- [Tan Chai Ching (104386076)]([link-to-profile](https://github.com/kristen531))
+- [Yong Pei Chen (102774381)]([link-to-profile](https://github.com/FennicaY))
 
 ## License:
 This project is not licensed under any [MIT License](link-to-license).
