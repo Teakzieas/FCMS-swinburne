@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
       }else{
          $insert_admin = $conn->prepare("INSERT INTO `management`(name, password) VALUES(?,?)");
          $insert_admin->execute([$name, $cpass]);
-         $message[] = 'new managment registered!';
+         $message1[] = 'new managment registered!';
       }
    }
 

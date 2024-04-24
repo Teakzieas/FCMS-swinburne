@@ -26,7 +26,7 @@ if(isset($_POST['update'])){
    $update_product = $conn->prepare("UPDATE `products` SET name = ?,info = ?, category = ?, price = ? WHERE id = ?");
    $update_product->execute([$name, $desc,$category, $price, $pid]);
 
-   $message[] = 'product updated!';
+   $message1[] = 'product updated!';
 
    $old_image = $_POST['old_image'];
    $image = $_FILES['image']['name'];

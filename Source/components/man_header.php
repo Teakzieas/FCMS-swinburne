@@ -9,6 +9,18 @@ if(isset($message)){
       ';
    }
 }
+
+
+if(isset($message1)){
+   foreach($message1 as $message1){
+      echo '
+      <div class="message1">
+         <span>'.$message1.'</span>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+      </div>
+      ';
+   }
+}
 ?>
    <link rel="stylesheet" href="css/style.css">
 

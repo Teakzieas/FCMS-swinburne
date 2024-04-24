@@ -61,6 +61,10 @@ if(isset($_GET['delete'])){
          $status = $_GET['status'];
          $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = '$status'");
       }
+      if(isset($_GET['id'])){
+         $status = $_GET['id'];
+         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = '$status'");
+      }
       else{
          $select_orders = $conn->prepare("SELECT * FROM `orders`");
       }
