@@ -72,16 +72,53 @@ if(isset($_POST['submit'])){
 
 <section class="form-container" style="background-color: white;">
 
-   <form action="" method="post">
+   <form id="myForm" action="" method="post">
       <h3>register now</h3>
-      <input type="text" name="name" required placeholder="enter your name" class="box" maxlength="50">
+      <input type="text" name="name" required placeholder="enter your name" class="box" maxlength="50" >
       <input type="email" name="email" required placeholder="enter your email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="number" name="number" required placeholder="enter your number" class="box" min="0" max="9999999999" maxlength="10">
+      <input type="number" name="number" required placeholder="enter your phone number" class="box" min="0" max="9999999999" maxlength="10">
       <input type="password" name="pass" required placeholder="enter your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" required placeholder="confirm your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="register now" name="submit" class="btn">
       <p>already have an account? <a href="login.php">login now</a></p>
    </form>
+
+   <script>
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', function(event) {
+            const name = form.elements['name'].value.trim();
+            const email = form.elements['email'].value.trim();
+            const number = form.elements['number'].value.trim();
+            const pass = form.elements['pass'].value;
+            const cpass = form.elements['cpass'].value;
+
+            if (name.length < 10) {
+                alert('Name should be at least 10 words long.');
+                event.preventDefault();
+            }
+
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                alert('Please enter a valid email address.');
+                event.preventDefault();
+            }
+
+            if (!/^\d{10,11}$/.test(number)) {
+                alert('Phone number should be 10 to 11 digits long and can start with a 0.');
+                event.preventDefault();
+            }
+
+            if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{10,20}/.test(pass)) {
+                alert('Password should contain at least one lowercase letter, one uppercase letter, one digit, and be between 10 and 20 characters long.');
+                event.preventDefault();
+            }
+
+            if (pass !== cpass) {
+                alert('Passwords do not match.');
+                event.preventDefault();
+            }
+        });
+    </script>
 
 </section>
 
