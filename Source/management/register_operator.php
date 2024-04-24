@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 
 </head>
 <body>
-<?php include '../components/op_header.php' ?>
+<?php include '../components/man_header.php' ?>
 
 <!-- register admin section starts  -->
 

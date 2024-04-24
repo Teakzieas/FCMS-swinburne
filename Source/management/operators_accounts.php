@@ -36,7 +36,7 @@ if(isset($_GET['delete'])){
 
 </head>
 <body>
-<?php include '../components/op_header.php' ?>
+<?php include '../components/man_header.php' ?>
 
 <!-- admins accounts section starts  -->
 
