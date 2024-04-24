@@ -26,7 +26,7 @@ if(isset($_POST['update'])){
    $update_product = $conn->prepare("UPDATE `products` SET name = ?,info = ?, category = ?, price = ? WHERE id = ?");
    $update_product->execute([$name, $desc,$category, $price, $pid]);
 
-   $message[] = 'product updated!';
+   $message1[] = 'product updated!';
 
    $old_image = $_POST['old_image'];
    $image = $_FILES['image']['name'];
@@ -43,7 +43,7 @@ if(isset($_POST['update'])){
          $update_image->execute([$image, $pid]);
          move_uploaded_file($image_tmp_name, $image_folder);
          unlink('../uploaded_img/'.$old_image);
-         $message[] = 'image updated!';
+         $message1[] = 'image updated!';
       }
    }
 

@@ -43,7 +43,7 @@ if(isset($_POST['update'])){
          $update_image->execute([$image, $pid]);
          move_uploaded_file($image_tmp_name, $image_folder);
          unlink('../uploaded_img/'.$old_image);
-         $message[] = 'image updated!';
+         $message1[] = 'image updated!';
       }
    }
 

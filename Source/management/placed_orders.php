@@ -16,7 +16,7 @@ if(isset($_POST['update_payment'])){
    $payment_status = $_POST['payment_status'];
    $update_status = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
    $update_status->execute([$payment_status, $order_id]);
-   $message[] = 'payment status updated!';
+   $message1[] = 'payment status updated!';
 
 }
 
