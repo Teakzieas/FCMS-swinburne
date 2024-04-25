@@ -77,7 +77,15 @@ if(isset($_POST['submit'])){
       <input type="text" name="name" required placeholder="enter your name" class="box" maxlength="50" >
       <input type="email" name="email" required placeholder="enter your email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="number" name="number" required placeholder="enter your phone number" class="box" min="0" max="9999999999" maxlength="10">
+      
       <input type="password" name="pass" required placeholder="enter your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+      <h3>
+          <ul style="padding-left:20px;list-style-type: disc; color: red; text-align: left; font-size: 12px;">
+            <li>minimum one lowercase letter</li>
+            <li>minimum one uppercase letter</li>
+            <li>minimum one digit</li>
+            <li>between 10 and 20 characters long</li>
+          </ul>
       <input type="password" name="cpass" required placeholder="confirm your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="register now" name="submit" class="btn">
       <p>already have an account? <a href="login.php">login now</a></p>

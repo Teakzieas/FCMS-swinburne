@@ -4,9 +4,9 @@ include '../components/connect.php';
 
 session_start();
 
-$man_id = $_SESSION['man_id'];
+$op_id = $_SESSION['man_id'];
 
-if(!isset($man_id)){
+if(!isset($op_id)){
    header('location:admin_login.php');
 };
 
@@ -57,17 +57,13 @@ if(isset($_GET['delete'])){
    <div class="box-container">
 
    <?php
-      if(isset($_GET['status'])){
-         $status = $_GET['status'];
-         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = '$status'");
-      }
-      if(isset($_GET['id'])){
-         $status = $_GET['id'];
-         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = '$status'");
-      }
-      else{
-         $select_orders = $conn->prepare("SELECT * FROM `orders`");
-      }
+   if(isset($_GET['status'])){
+      $status = $_GET['status'];
+      $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = '$status'");
+   }
+   else{
+      $select_orders = $conn->prepare("SELECT * FROM `orders`");
+   }
       $select_orders->execute();
       if($select_orders->rowCount() > 0){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
