@@ -55,7 +55,6 @@ if(isset($message1)){
          <p><?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">update manager profile</a>
          <div class="flex-btn">
-            <a href="admin_login.php" class="option-btn">login</a>
          </div>
          <a href="../components/man_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
       </div>
