@@ -4,9 +4,9 @@ include '../components/connect.php';
 
 session_start();
 
-$op_id = $_SESSION['man_id'];
+$man_id = $_SESSION['man_id'];
 
-if(!isset($op_id)){
+if(!isset($man_id)){
    header('location:admin_login.php');
 };
 
@@ -69,6 +69,7 @@ if(isset($_GET['delete'])){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
    ?>
    <div class="box">
+      <a href="print.php?order=<?= $fetch_orders['id']; ?>"><button style="float:right;padding:10px;background:#fed330;border-radius:10px;font-size:15px;font-weight:600;">Print</button></a>                  
       <p> user id : <span><?= $fetch_orders['user_id']; ?></span> </p>
       <p> placed on : <span><?= $fetch_orders['placed_on']; ?></span> </p>
       <p> name : <span><?= $fetch_orders['name']; ?></span> </p>
