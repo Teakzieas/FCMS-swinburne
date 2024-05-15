@@ -35,13 +35,14 @@ if(isset($_POST['submit'])){
          $message[] = 'please add your address!';
       }else{
          
-         $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price) VALUES(?,?,?,?,?,?,?,?)");
+         $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price,payment_status,msg) VALUES(?,?,?,?,?,?,?,?,'pending','')");
          $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price]);
 
          $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
          $delete_cart->execute([$user_id]);
 
-         $message[] = 'order placed successfully!';
+         $message1[] = 'order placed successfully!';
+         header('location:orders.php?order=last');
       }
       
    }else{

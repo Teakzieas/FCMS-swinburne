@@ -20,13 +20,72 @@ if(isset($message)){
    <img src="images/LYgjKqzpQb.png" alt="Yum-Yum Logo" width="100" height="100"></a>
 
       <nav class="navbar">
-         <a href="home.php">Home</a>
-         <a href="about.php">About</a>
-         <a href="menu.php">Menu</a>
-         <a href="orders.php">Orders</a>
-         <a href="contact.php">Contact</a>
-         <a href="management/admin_login.php">Management Portal</a>
-         <a href="operation/admin_login.php">Operation Portal</a>
+          <a href="home.php">Home</a>
+          <a href="about.php">About</a>
+          <a href="menu.php">Menu</a>
+          <a href="orders.php">Orders</a>
+          <a href="contact.php">Contact</a>
+          <a href="messages.php">Messages</a>
+          <div class="dropdown">
+            <button class="dropbtn" style="background-color: #fec901; color: black;    font-family: 'Rubik', sans-serif;font-size: 2rem;">Admin</button>
+            <div class="dropdown-content">
+               <a href="management/admin_login.php">Management Portal</a>
+               <a href="operation/admin_login.php">Operation Portal</a>
+            </div>
+          </div>
+          <style>
+            .dropdown {
+               display: inline-block;
+               position: relative;
+            }
+
+            .dropdown-content {
+               display: none;
+               position: absolute;
+               background-color: #f9f9f9;
+               min-width: 160px;
+               box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+               z-index: 1;  
+            }
+
+            .dropdown-content a {
+               color: black;
+               padding: 12px 16px;
+               text-decoration: none;
+               display: block;
+            }
+
+            .dropdown-content a:hover {
+               background-color: #f1f1f1;
+            }
+
+            .dropdown:hover .dropdown-content {
+               display: block;
+            }
+            
+            /* Add the same style as the current website */
+            .dropdown-content {
+               background-color: #fec901;
+               color: white;
+            }
+
+            .dropdown-content a {
+               color: white;
+            }
+
+            .dropdown-content a:hover {
+               background-color: #feca02;
+            }
+          </style>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+               var dropdown = document.querySelector(".dropdown");
+               dropdown.addEventListener("click", function() {
+                 this.querySelector(".dropdown-content").classList.toggle("show");
+               });
+            });
+          </script>
+          
       </nav>
 
       <div class="icons">
@@ -53,10 +112,17 @@ if(isset($message)){
             <a href="profile.php" class="btn">profile</a>
             <a href="components/user_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
          </div>
-         <p class="account">
-            <a href="login.php">login</a> or
-            <a href="register.php">register</a>
-         </p> 
+         <?php
+            if(!isset($_SESSION['user_id'])){
+               echo 
+               '
+               <p class="account">
+               <a href="login.php">login</a> or
+               <a href="register.php">register</a>
+               </p> 
+               ';
+            };
+         ?>
          <?php
             }else{
          ?>

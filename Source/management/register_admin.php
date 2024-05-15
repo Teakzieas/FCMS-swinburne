@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    $cpass = sha1($_POST['cpass']);
    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
-   $select_admin = $conn->prepare("SELECT * FROM `managment` WHERE name = ?");
+   $select_admin = $conn->prepare("SELECT * FROM `management` WHERE name = ?");
    $select_admin->execute([$name]);
    
    if($select_admin->rowCount() > 0){
@@ -28,9 +28,9 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $message[] = 'confirm passowrd not matched!';
       }else{
-         $insert_admin = $conn->prepare("INSERT INTO `managment`(name, password) VALUES(?,?)");
+         $insert_admin = $conn->prepare("INSERT INTO `management`(name, password) VALUES(?,?)");
          $insert_admin->execute([$name, $cpass]);
-         $message[] = 'new managment registered!';
+         $message1[] = 'new managment registered!';
       }
    }
 
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
 <section class="form-container">
 
    <form action="" method="POST">
-      <h3>register new</h3>
+      <h3>Register New Manager</h3>
       <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" maxlength="20" required placeholder="confirm your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">

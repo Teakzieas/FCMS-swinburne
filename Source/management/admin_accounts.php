@@ -47,7 +47,7 @@ if(isset($_GET['delete'])){
    <div class="box-container">
 
    <div class="box">
-      <p>register new admin</p>
+      <p>register new manager</p>
       <a href="register_admin.php" class="option-btn">register</a>
    </div>
 

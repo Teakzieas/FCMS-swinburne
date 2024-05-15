@@ -17,7 +17,7 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="dashboard.php" class="logo">Operation<span>Panel</span></a>
+      <a href="dashboard.php" class="logo">Operations<span>Panel</span></a>
       <img src="images/LYgjKqzpQb.png" width="100" height="100"></a>
 
       <nav class="navbar">
@@ -41,7 +41,6 @@ if(isset($message)){
          <p><?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">update operator profile</a>
          <div class="flex-btn">
-            <a href="admin_login.php" class="option-btn">login</a>
          </div>
          <a href="../components/op_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
       </div>

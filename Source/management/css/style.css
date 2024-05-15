@@ -121,6 +121,7 @@ section{
 }
 
 .message{
+    background-color:red;
    position: sticky;
    top:0;
    max-width: 1200px;
@@ -130,23 +131,53 @@ section{
    align-items: center;
    gap:1rem;
    justify-content: space-between;
-   background-color: var(--yellow);
+   color: white;
 }
 
 .message span{
    font-size: 2rem;
-   color:var(--black);
+   color:white;
 }
 
 .message i{
    font-size: 2.5rem;
-   color:var(--red);
+   color:white;
    cursor: pointer;
 }
 
 .message i:hover{
-   color:var(--black);
+   color:white;
 }
+
+.message1{
+   background-color:rgb(34, 139, 34);
+  position: sticky;
+  top:0;
+  max-width: 1200px;
+  margin:0 auto;
+  padding:2rem;
+  display: flex;
+  align-items: center;
+  gap:1rem;
+  justify-content: space-between;
+  color: white;
+}
+
+.message1 span{
+  font-size: 2rem;
+  color:white;
+}
+
+.message1 i{
+  font-size: 2.5rem;
+  color:white;
+  cursor: pointer;
+}
+
+.message1 i:hover{
+  color:white;
+}
+
 
 .empty{
    border:var(--border);
@@ -1012,7 +1043,7 @@ section{
 
 }
 
-@media (max-width:768px){
+@media (max-width:1000px){
 
    #menu-btn{
       display: inline-block;

@@ -47,12 +47,27 @@ if(isset($_GET['delete'])){
 <section class="accounts">
 
    <h1 class="heading">users account</h1>
-
+   <div class="search-bar" style="text-align: center;padding:20px;font-size:25px;">
+      <form action="" method="GET">
+         <input type="text" name="search" placeholder="Search by username" style="font-size:20px;border-color:gray;border-style: solid;border-radius:10px;padding:10px">
+         <button type="submit" name="submit" style="font-size:20px;background:#fed330;padding:10px;border-radius:10px;" >Search</button>
+         <a href="users_accounts.php"><button style="color:white;font-size:20px;background:#e74c3c;padding:10px;border-radius:10px;">Reset</button></a>
+      </form>
+         </div>
    <div class="box-container">
 
+
    <?php
-      $select_account = $conn->prepare("SELECT * FROM `users`");
-      $select_account->execute();
+      $search = isset($_GET['search']) ? $_GET['search'] : '';
+      if(isset($_GET['submit'])){
+         $select_account = $conn->prepare("SELECT * FROM `users` WHERE name like ?");
+         $select_account->execute([$search]);
+      }
+      else
+      {
+         $select_account = $conn->prepare("SELECT * FROM `users`");
+         $select_account->execute();
+      }
       if($select_account->rowCount() > 0){
          while($fetch_accounts = $select_account->fetch(PDO::FETCH_ASSOC)){  
    ?>
@@ -60,13 +75,13 @@ if(isset($_GET['delete'])){
       <p> user id : <span><?= $fetch_accounts['id']; ?></span> </p>
       <p> username : <span><?= $fetch_accounts['name']; ?></span> </p>
       <a href="users_accounts.php?delete=<?= $fetch_accounts['id']; ?>" class="delete-btn" onclick="return confirm('delete this account?');">delete</a>
+      <a href="placed_orders.php?id=<?= $fetch_accounts['id']; ?>" class="btn">see orders</a>
    </div>
    <?php
       }
-   }else{
-      echo '<p class="empty">no accounts available</p>';
    }
    ?>
+
 
    </div>
 

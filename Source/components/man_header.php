@@ -9,6 +9,18 @@ if(isset($message)){
       ';
    }
 }
+
+
+if(isset($message1)){
+   foreach($message1 as $message1){
+      echo '
+      <div class="message1">
+         <span>'.$message1.'</span>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+      </div>
+      ';
+   }
+}
 ?>
    <link rel="stylesheet" href="css/style.css">
 
@@ -17,7 +29,7 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="dashboard.php" class="logo">Managment<span>Panel</span></a>
+      <a href="dashboard.php" class="logo">Management<span>Panel</span></a>
       <img src="images/LYgjKqzpQb.png" width="100" height="100"></a>
 
       <nav class="navbar">
@@ -43,7 +55,6 @@ if(isset($message)){
          <p><?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">update manager profile</a>
          <div class="flex-btn">
-            <a href="admin_login.php" class="option-btn">login</a>
          </div>
          <a href="../components/man_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
       </div>

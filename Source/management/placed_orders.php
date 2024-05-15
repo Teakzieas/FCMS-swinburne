@@ -16,7 +16,7 @@ if(isset($_POST['update_payment'])){
    $payment_status = $_POST['payment_status'];
    $update_status = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
    $update_status->execute([$payment_status, $order_id]);
-   $message[] = 'payment status updated!';
+   $message1[] = 'payment status updated!';
 
 }
 
@@ -57,12 +57,19 @@ if(isset($_GET['delete'])){
    <div class="box-container">
 
    <?php
+   if(isset($_GET['status'])){
+      $status = $_GET['status'];
+      $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = '$status'");
+   }
+   else{
       $select_orders = $conn->prepare("SELECT * FROM `orders`");
+   }
       $select_orders->execute();
       if($select_orders->rowCount() > 0){
          while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
    ?>
    <div class="box">
+      <a href="print.php?order=<?= $fetch_orders['id']; ?>"><button style="float:right;padding:10px;background:#fed330;border-radius:10px;font-size:15px;font-weight:600;">Print</button></a>                  
       <p> user id : <span><?= $fetch_orders['user_id']; ?></span> </p>
       <p> placed on : <span><?= $fetch_orders['placed_on']; ?></span> </p>
       <p> name : <span><?= $fetch_orders['name']; ?></span> </p>

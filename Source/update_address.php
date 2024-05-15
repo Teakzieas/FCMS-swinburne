@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    $update_address = $conn->prepare("UPDATE `users` set address = ? WHERE id = ?");
    $update_address->execute([$address, $user_id]);
 
-   $message[] = 'address saved!';
+   $message1[] = 'address saved!';
 
 }
 
