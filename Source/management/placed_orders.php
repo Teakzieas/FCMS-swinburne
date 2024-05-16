@@ -13,9 +13,17 @@ if(!isset($man_id)){
 if(isset($_POST['update_payment'])){
 
    $order_id = $_POST['order_id'];
-   $payment_status = $_POST['payment_status'];
-   $update_status = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
-   $update_status->execute([$payment_status, $order_id]);
+   
+   $msg = $_POST['msg'];
+   if(isset($_POST['payment_status']))
+   {
+      $payment_status = $_POST['payment_status'];
+      $update_status = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
+      $update_status->execute([$payment_status, $order_id]);
+   }
+   
+   $update_status = $conn->prepare("UPDATE `orders` SET msg = ? WHERE id = ?");
+   $update_status->execute([$msg, $order_id]);
    $message1[] = 'payment status updated!';
 
 }
@@ -75,12 +83,17 @@ if(isset($_GET['delete'])){
       <p> name : <span><?= $fetch_orders['name']; ?></span> </p>
       <p> email : <span><?= $fetch_orders['email']; ?></span> </p>
       <p> number : <span><?= $fetch_orders['number']; ?></span> </p>
+      <p> Delivery : <span><?= $fetch_orders['DeliveryTime']; ?></span> </p>
       <p> address : <span><?= $fetch_orders['address']; ?></span> </p>
       <p> total products : <span><?= $fetch_orders['total_products']; ?></span> </p>
       <p> total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
       <p> payment method : <span><?= $fetch_orders['method']; ?></span> </p>
       <form action="" method="POST">
+         
          <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
+         <br>
+         <p>Message:</p>
+         <input type="text" name="msg" id="msg" class="drop-down" value="<?= $fetch_orders['msg']; ?>">
          <select name="payment_status" class="drop-down">
             <option value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
             <option value="pending">pending</option>

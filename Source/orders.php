@@ -50,7 +50,7 @@ if(isset($_SESSION['user_id'])){
       if($user_id == ''){
          echo '<p class="empty">please login to see your orders</p>';
       }else{
-         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = ? ORDER BY `id` DESC");
+         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = ? ORDER BY id DESC");
          $select_orders->execute([$user_id]);
          $x = 0;
          if($select_orders->rowCount() > 0){
@@ -68,6 +68,7 @@ if(isset($_SESSION['user_id'])){
                         <a href="print.php?order=<?= $fetch_orders['id']; ?>"><button style="float:right;padding:10px;background:#fed330;border-radius:10px;font-size:15px;font-weight:600;">Print</button></a>
                         <p>placed on : <span><?= $fetch_orders['placed_on']; ?></span></p>
                         <p>name : <span><?= $fetch_orders['name']; ?></span></p>
+                        <p>Delivery on: <span><?= $fetch_orders['DeliveryTime']; ?></span></p>
                         <p>email : <span><?= $fetch_orders['email']; ?></span></p>
                         <p>number : <span><?= $fetch_orders['number']; ?></span></p>
                         <p>address : <span><?= $fetch_orders['address']; ?></span></p>
@@ -105,6 +106,7 @@ if(isset($_SESSION['user_id'])){
                      <a href="print.php?order=<?= $fetch_orders['id']; ?>"><button style="float:right;padding:10px;background:#fed330;border-radius:10px;font-size:15px;font-weight:600;">Print</button></a>
                      <p>placed on : <span><?= $fetch_orders['placed_on']; ?></span></p>
                      <p>name : <span><?= $fetch_orders['name']; ?></span></p>
+                     <p>Delivery on: <span><?= $fetch_orders['DeliveryTime']; ?></span></p>
                      <p>email : <span><?= $fetch_orders['email']; ?></span></p>
                      <p>number : <span><?= $fetch_orders['number']; ?></span></p>
                      <p>address : <span><?= $fetch_orders['address']; ?></span></p>

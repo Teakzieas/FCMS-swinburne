@@ -42,88 +42,37 @@ if(isset($_SESSION['user_id'])){
 
 <section class="orders">
 
-   <h1 class="title">your messages</h1>
+   <div style="text-align:center">
+      <h1 class="title" style="display: inline-block; text-align: center;">your messages</h1>
+      <a class="button" href="contact.php" style="margin:20px;background-color: #e74c3c;; border-radius:10px;font-size: 3rem;    font-family: 'Rubik', sans-serif;    font-weight: bold;color:white;padding:10px">New Message</a>
+
+   </div>
 
    <div class="box-container">
 
    <?php
-      if($user_id == ''){
-         echo '<p class="empty">please login to see your orders</p>';
-      }else{
-         $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = ? ORDER BY `id` DESC");
-         $select_orders->execute([$user_id]);
-         $x = 0;
-         if($select_orders->rowCount() > 0){
-            while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
-               $x= $x+1;
-               
-               if ($x == 1){
-                  
-                  if(isset($_GET['order'])) {
-
-
-                  ?>
-                  
-                      <div class="box" id="glow">
-                        <a href="print.php?order=<?= $fetch_orders['id']; ?>"><button style="float:right;padding:10px;background:#fed330;border-radius:10px;font-size:15px;font-weight:600;">Print</button></a>
-                        <p>placed on : <span><?= $fetch_orders['placed_on']; ?></span></p>
-                        <p>name : <span><?= $fetch_orders['name']; ?></span></p>
-                        <p>email : <span><?= $fetch_orders['email']; ?></span></p>
-                        <p>number : <span><?= $fetch_orders['number']; ?></span></p>
-                        <p>address : <span><?= $fetch_orders['address']; ?></span></p>
-                        <p>payment method : <span><?= $fetch_orders['method']; ?></span></p>
-                        <p>your orders : <span><?= $fetch_orders['total_products']; ?></span></p>
-                        <p>total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span></p>
-                        <p> payment status : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
-                        <p>Note FromFoodEdge : <span><?php if($fetch_orders['msg']==""){echo "-";}else{echo $fetch_orders['msg'];} ?></span></p>
-
-                     </div>
-                      <script>
-                        var glowDiv = document.getElementById("glow");
-                        var count = 0;
-                        var interval = setInterval(function() {
-                           if (count < 10) {
-                             if (count % 2 === 0) {
-                               glowDiv.style.backgroundColor = "#fed330";
-                             } else {
-                              glowDiv.style.backgroundColor = "WHITE";
-                             }
-                             count++;
-                           } else {
-                             clearInterval(interval);
-                           }
-                        }, 200);
-                      </script>
-                     
-                  <?php
-               }
-            }
-               else
-               {
-                  ?>
-                  <div class="box">
-                     <a href="print.php?order=<?= $fetch_orders['id']; ?>"><button style="float:right;padding:10px;background:#fed330;border-radius:10px;font-size:15px;font-weight:600;">Print</button></a>
-                     <p>placed on : <span><?= $fetch_orders['placed_on']; ?></span></p>
-                     <p>name : <span><?= $fetch_orders['name']; ?></span></p>
-                     <p>email : <span><?= $fetch_orders['email']; ?></span></p>
-                     <p>number : <span><?= $fetch_orders['number']; ?></span></p>
-                     <p>address : <span><?= $fetch_orders['address']; ?></span></p>
-                     <p>payment method : <span><?= $fetch_orders['method']; ?></span></p>
-                     <p>your orders : <span><?= $fetch_orders['total_products']; ?></span></p>
-                     <p>total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span></p>
-                     <p> payment status : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
-                     <p>Note FromFoodEdge : <span><?php if($fetch_orders['msg']==""){echo "-";}else{echo $fetch_orders['msg'];} ?></span></p>
-
-                  </div>
-                  <?php
-               }
-   ?>
-   
-   <?php
+      $select_orders = $conn->prepare("SELECT * FROM `messages` WHERE user_id = ? ORDER BY `id` DESC");
+      $select_orders->execute([$user_id]);
+      $x = 0;
+      if($select_orders->rowCount() > 0)
+      {
+         while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC))
+         {
+            ?>
+               <div class="box">
+                  <p>Sent on : <span><?= $fetch_orders['event_timestamp']; ?></span></p>
+                  <p>name : <span><?= $fetch_orders['name']; ?></span></p>
+                  <p>email : <span><?= $fetch_orders['email']; ?></span></p>
+                  <p>number : <span><?= $fetch_orders['number']; ?></span></p>
+                  <p style="border: 3px solid;width=100%;padding:10px">message : <br><span><?= $fetch_orders['message']; ?></span></p>
+                  <p style="border: 3px solid;width=100%;padding:10px">Response : <br><span><?php if($fetch_orders['Response']==""){echo "-";}else{echo $fetch_orders['Response'];} ?></span></p>
+               </div>
+            <?php
+         }
       }
-      }else{
-         echo '<p class="empty">no orders placed yet!</p>';
-      }
+      else
+      {
+         echo '<p class="empty">no messages yet!</p>';
       }
    ?>
 

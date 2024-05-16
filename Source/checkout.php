@@ -34,9 +34,12 @@ if(isset($_POST['submit'])){
       if($address == ''){
          $message[] = 'please add your address!';
       }else{
-         
-         $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price,payment_status,msg) VALUES(?,?,?,?,?,?,?,?,'pending','')");
-         $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price]);
+         $date = $_POST['date'];
+         $time = $_POST['time'];
+         $orderdeliver = $date . ' ' . $time;
+         echo $orderdeliver;
+          $insert_order = $conn->prepare("INSERT INTO `orders`(user_id, name, number, email, method, address, total_products, total_price, payment_status, msg, DeliveryTime) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+          $insert_order->execute([$user_id, $name, $number, $email, $method, $address, $total_products, $total_price, 'pending', '', $orderdeliver]);
 
          $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
          $delete_cart->execute([$user_id]);
@@ -125,6 +128,35 @@ if(isset($_POST['submit'])){
       <h3>delivery address</h3>
       <p><i class="fas fa-map-marker-alt"></i><span><?php if($fetch_profile['address'] == ''){echo 'please enter your address';}else{echo $fetch_profile['address'];} ?></span></p>
       <a href="update_address.php" class="btn">update address</a>
+      <div class="date-time">
+         <h3>date and time</h3>
+          <input type="date"  name="date" class="box" required>
+         <script>
+            document.getElementsByName('date')[0].addEventListener('change', function() {
+               var selectedDate = this.value;
+               var tomorrow = new Date();
+               tomorrow.setDate(tomorrow.getDate() + 1);
+               var dd = tomorrow.getDate();
+               var mm = tomorrow.getMonth() + 1;
+               var yyyy = tomorrow.getFullYear();
+               if (dd < 10) {
+                  dd = '0' + dd;
+               }
+               if (mm < 10) {
+                  mm = '0' + mm;
+               }
+               var tomorrowFormatted = yyyy + '-' + mm + '-' + dd;
+
+               if (selectedDate < tomorrowFormatted) {
+                  alert('Please select a date that is tomorrow or later.');
+                  this.value = tomorrowFormatted;
+               }
+            });
+            
+               
+         </script>
+          <input type="time" name="time" class="box" required>
+      </div>
       <select name="method" class="box" required>
          <option value="" disabled selected>select payment method --</option>
          <option value="cash on delivery">cash on delivery</option>
