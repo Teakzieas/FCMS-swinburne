@@ -17,6 +17,18 @@ if(isset($_GET['delete'])){
    header('location:messages.php');
 }
 
+if(isset($_POST['update_message'])){
+
+   $order_id = $_POST['order_id'];
+   
+   $msg = $_POST['response'];
+
+   
+   $update_status = $conn->prepare("UPDATE `messages` SET response = ? WHERE id = ?");
+   $update_status->execute([$msg, $order_id]);
+   $message1[] = 'payment status updated!';
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +52,7 @@ if(isset($_GET['delete'])){
 
 <!-- messages section starts  -->
 
-<section class="messages">
+<section class="placed-orders">
 
    <h1 class="heading">messages</h1>
 
@@ -57,8 +69,18 @@ if(isset($_GET['delete'])){
       <p> number : <span><?= $fetch_messages['number']; ?></span> </p>
       <p> email : <span><?= $fetch_messages['email']; ?></span> </p>
       <p> message : <span><?= $fetch_messages['message']; ?></span> </p>
-      <a href="messages.php?delete=<?= $fetch_messages['id']; ?>" class="delete-btn" onclick="return confirm('delete this message?');">delete</a>
-   </div>
+      <form action="" method="POST">
+         
+         <input type="hidden" name="order_id" value="<?= $fetch_messages['id']; ?>">
+         <br>
+         <p>Response:</p>
+         <input type="text" name="response" id="response" class="drop-down" value="<?= $fetch_messages['Response']; ?>">
+         <div class="flex-btn">
+            <input type="submit" value="update" class="btn" name="update_message">
+            <a href="messages.php?delete=<?= $fetch_messages['id']; ?>" class="delete-btn" onclick="return confirm('delete this message?');">delete</a>
+         </div>
+      </form>
+        </div>
    <?php
          }
       }else{
