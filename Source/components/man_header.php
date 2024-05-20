@@ -29,7 +29,7 @@ if(isset($message1)){
 
    <section class="flex">
 
-      <a href="dashboard.php" class="logo">Management<span>Panel</span></a>
+      <a href="dashboard.php" class="logo">Management<span style="color: #4834d4;">Panel</span></a>
       <img src="images/LYgjKqzpQb.png" width="100" height="100"></a>
 
       <nav class="navbar">
