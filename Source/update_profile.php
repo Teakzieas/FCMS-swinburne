@@ -65,7 +65,11 @@ if(isset($_POST['submit'])){
             $message[] = 'please enter a new password!';
          }
       }
-   }  
+   }
+   else 
+   {
+      $message[] = 'please enter old password!';
+   } 
 
 }
 
