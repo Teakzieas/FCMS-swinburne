@@ -26,14 +26,18 @@ if(isset($message)){
           <a href="orders.php">Orders</a>
           <a href="contact.php">Contact</a>
           <a href="messages.php">Messages</a>
-          <div class="dropdown">
+          <div id="normal3" class="dropdown">
             <button class="dropbtn" style="background-color: #fec901; color: black;    font-family: 'Rubik', sans-serif;font-size: 2rem;">Admin</button>
             <div class="dropdown-content">
-               <a href="management/admin_login.php">Management Portal</a>
-               <a href="operation/admin_login.php">Operation Portal</a>
+            <a  href="management/admin_login.php">Management Portal</a>
+            <a  href="operation/admin_login.php">Operation Portal</a>
+               
             </div>
           </div>
+         <a id="normal" href="management/admin_login.php">Management Portal</a>
+         <a id="normal2" href="operation/admin_login.php">Operation Portal</a>
           <style>
+            
             .dropdown {
                display: inline-block;
                position: relative;
@@ -84,6 +88,22 @@ if(isset($message)){
                  this.querySelector(".dropdown-content").classList.toggle("show");
                });
             });
+               
+                  setInterval(function() {
+                     if (window.innerWidth > 1200) {
+                        document.getElementById("normal").style.display = "none";
+                        document.getElementById("normal2").style.display = "none";
+                        document.getElementById("normal3").style.display = "inline-block";
+                     }
+                     else
+                     {
+                        document.getElementById("normal").style.display = "block";
+                        document.getElementById("normal2").style.display = "block";
+                        document.getElementById("normal3").style.display = "none";
+                     }
+                  }, 100);
+              
+            
           </script>
           
       </nav>

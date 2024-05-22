@@ -37,12 +37,14 @@ if(isset($message1)){
          <a href="products.php">Products</a>
          <a href="placed_orders.php">Orders</a>
          <div class="dropdown">
-            <button class="dropbtn" style="background-color: #fec901; color: black;    font-family: 'Rubik', sans-serif;font-size: 2rem;">Admin</button>
+            <button id="normal3" class="dropbtn" style="background-color: #fec901; color: black;    font-family: 'Rubik', sans-serif;font-size: 2rem;">Admin</button>
             <div class="dropdown-content">
                <a href="admin_accounts.php">Managers Accounts</a>
                <a href="operators_accounts.php">Operators Accounts</a>
             </div>
          </div>
+         <a id="normal2" href="admin_accounts.php">Managers Accounts</a>
+         <a id="normal"  href="operators_accounts.php">Operators Accounts</a>
          <a href="users_accounts.php">Users</a>
          <a href="messages.php">Messages</a>
       </nav>
@@ -119,4 +121,18 @@ if(isset($message1)){
                  this.querySelector(".dropdown-content").classList.toggle("show");
                });
             });
+
+            setInterval(function() {
+                     if (window.innerWidth > 1200) {
+                        document.getElementById("normal").style.display = "none";
+                        document.getElementById("normal2").style.display = "none";
+                        document.getElementById("normal3").style.display = "inline-block";
+                     }
+                     else
+                     {
+                        document.getElementById("normal").style.display = "block";
+                        document.getElementById("normal2").style.display = "block";
+                        document.getElementById("normal3").style.display = "none";
+                     }
+                  }, 100);
           </script>
