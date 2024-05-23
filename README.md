@@ -40,6 +40,21 @@ To get started with FCMS development, follow these steps:
 4. Make changes, commit them to your branch, and push them to the repository.
 5. Create a pull request for code review and merging into the main branch.
 
+## Test Account Credentials:
+Use the following credentials for testing purposes:
+
+### Client:
+- **Email:** ilovebuffet@gmail.com
+- **Password:** 520520520
+
+### Manager:
+- **Username:** Manager2
+- **Password:** admin
+
+### Operator:
+- **Username:** Operator1
+- **Password:** admin
+
 ## Contributors:
 - [Divyessh Sivakumar (101227402)]([link-to-profile](https://github.com/Teakzieas))
 - [Nur Naziha Binti Abdullah Saji (102787871)](https://github.com/zeeetty)
