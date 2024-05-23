@@ -56,11 +56,11 @@ Use the following credentials for testing purposes:
 - **Password:** admin
 
 ## Contributors:
-- [Divyessh Sivakumar (101227402)]([link-to-profile](https://github.com/Teakzieas))
+- [Divyessh Sivakumar (101227402)](https://github.com/Teakzieas)
 - [Nur Naziha Binti Abdullah Saji (102787871)](https://github.com/zeeetty)
-- [Simon Tiong Chuong Yao (101227716)]([link-to-profile](https://github.com/SimonTCY))
-- [Tan Chai Ching (104386076)]([link-to-profile](https://github.com/kristen531))
-- [Yong Pei Chen (102774381)]([link-to-profile](https://github.com/FennicaY))
+- [Simon Tiong Chuong Yao (101227716)](https://github.com/SimonTCY)
+- [Tan Chai Ching (104386076)](https://github.com/kristen531)
+- [Yong Pei Chen (102774381)](https://github.com/FennicaY)
 
 ## License:
 This project is not licensed under any [MIT License](link-to-license).
