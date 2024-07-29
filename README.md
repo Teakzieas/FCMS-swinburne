@@ -45,7 +45,7 @@ Use the following credentials for testing purposes:
 
 ### Client:
 - **Email:** ilovebuffet@gmail.com
-- **Password:** 520520520
+- **Password:** Buffet1234
 
 ### Manager:
 - **Username:** Manager2
